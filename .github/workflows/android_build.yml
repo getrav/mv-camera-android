@@ -5,7 +5,9 @@ on:
     branches: [ "main" ] # Adjust if your main branch is master
   pull_request:
     branches: [ "main" ] # Adjust if your main branch is master
-
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,6 +28,7 @@ jobs:
       # with:
         # ndk-version: '25.2.9519653' # Optional: specify NDK version if needed
         # cmake-version: '3.22.1' # Optional: specify CMake version if needed
+      uses: android-actions/setup-android@v2
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
@@ -34,7 +37,6 @@ jobs:
       run: ./gradlew assembleRelease
       # Or use assembleDebug if release signing is not set up:
       # run: ./gradlew assembleDebug
-
     - name: List APK output files
       run: |
         echo "Listing app/build/outputs/apk/release:"
@@ -53,3 +55,5 @@ jobs:
         path: app/build/outputs/apk/release/app-release-unsigned.apk # Corrected filename
         # If building debug, change path:
         # path: app/build/outputs/apk/debug/app-debug.apk
+        name: app-release-unsigned
+        path: app/build/outputs/apk/release/app-release-unsigned.apk
