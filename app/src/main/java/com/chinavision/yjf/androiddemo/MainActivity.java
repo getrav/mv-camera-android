@@ -3,7 +3,7 @@ package com.chinavision.yjf.androiddemo;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity; // Changed to AndroidX
 import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceHolder;
