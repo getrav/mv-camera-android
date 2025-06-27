@@ -22,17 +22,14 @@ jobs:
         cache: gradle
 
     - name: Setup Android SDK
-      uses: android-actions/setup-android@v2 # This action handles SDK, NDK, CMake
-      # with:
-        # ndk-version: '25.2.9519653' # Optional: specify NDK version if needed
-        # cmake-version: '3.22.1' # Optional: specify CMake version if needed
+      uses: android-actions/setup-android@v2
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
     - name: Build with Gradle
       run: ./gradlew assembleRelease
-      # Or use assembleDebug if release signing is not set up:
+      # If release signing is not set up, use:
       # run: ./gradlew assembleDebug
 
     - name: List APK output files
